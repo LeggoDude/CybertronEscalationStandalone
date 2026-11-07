@@ -1,0 +1,31 @@
+[package]
+name = "foc_esc"
+version = "1.0.0"
+edition = "2024"
+
+[dependencies]
+# "jpeg" lets Bevy load the JPEG textures inside models/garage.glb.
+bevy = { version = "0.18", features = ["jpeg"] }
+# Decodes the main menu's background movie (H.264). It builds Cisco's OpenH264
+# from source, so it needs a C++ compiler (the one Rust uses on Windows: the
+# Visual Studio Build Tools' "Desktop development with C++").
+openh264 = "0.9"
+
+# Bevy is very slow when built without optimizations. These profiles keep your
+# own code quick to compile while still optimizing the engine itself.
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+# The optimized build, which "boot demo cargo.bat" plays (cargo run --release):
+# smoother in big waves. The engine and the other libraries are each built as one
+# unit, the slowest way to build them and the quickest to run; that happens once
+# (several minutes, the first time) and again only if they change. The demo's own
+# code is built incrementally, so an update to it rebuilds in a minute or two.
+[profile.release]
+incremental = true
+
+[profile.release.package."*"]
+codegen-units = 1

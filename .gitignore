@@ -1,0 +1,42 @@
+# Cybertron Escalation: what goes up is the demo's own work: its source (src,
+# Cargo.toml, Cargo.lock, build.rs), the asset build's scripts (tools), its
+# hand-written shaders, its icon, the .bat files and the README. Everything
+# built from Transformers: Fall of Cybertron stays on your PC: each player builds
+# his own from his own copy of the game ("extract assets.bat", or the installer).
+
+# Build output: Rust's (target, about 6 GB) and the installer's. Share the
+# installer as a release download, not in the code.
+/target/
+/installer_work/
+/installer_out/
+
+# The game's files, built from your copy of the game: all of assets but the
+# demo's own shaders.
+/assets/*
+!/assets/shaders/
+/assets/shaders/*
+!/assets/shaders/*.wgsl
+# (levelfx.wgsl and shaders\levelfx are built from the game's maps too.)
+/assets/shaders/levelfx.wgsl
+
+# The asset build's work folder (the game's exports while it runs, its logs).
+/extract_work/
+
+# UE Viewer (someone else's program, about 830 MB): the README's section 3 says
+# where to get it, and the installer brings its own copy.
+/tools/umodel/
+
+# Python's caches, and logs.
+__pycache__/
+*.pyc
+*.log
+
+# Your own files: your progress, builds and settings, the network log.
+/progress.txt
+/builds.txt
+/settings.txt
+/netlog.txt
+
+# Claude's handover folders and your shortcuts.
+/incoming_*/
+*.lnk
