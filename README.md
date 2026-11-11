@@ -10,4 +10,4 @@ The new features include:
 * Direct connection via IP, with password restrictions
 * DLC exclusive armor sets unlocked via in game currency.
 
-In order to play this, you will will need a copy of the Fall of Cybertron game on Steam downloaded in order to extract the assets. Simply head to the releases page and download the exe and point the installer to your installation folder.
+In order to play this, you will need a copy of the Fall of Cybertron game on Steam downloaded in order to extract the assets. Simply head to the releases page and download the exe and point the installer to your installation folder.
